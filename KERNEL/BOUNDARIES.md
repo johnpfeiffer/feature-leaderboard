@@ -25,7 +25,7 @@ RESOURCES.md are the highest priority source of authority and expertise.
 
 Validation:
 
-- Conflicts between researched or discovered items and RESOURCES are documented, and 
+- Conflicts between researched or discovered items and RESOURCES are documented. 
 
 
 ## BOUNDARY-004: No Paid-Only MVP Dependency

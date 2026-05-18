@@ -2,9 +2,9 @@
 
 This should avoid implementation detail unless the requirement genuinely requires it.
 
-## REQ-001: Public Feature Leaderboard
+## REQ-001: Feature Leaderboard
 
-The system must display a public leaderboard of feature requests.
+The system must display a leaderboard of feature requests.
 
 Each listed feature request must show, at minimum:
 
