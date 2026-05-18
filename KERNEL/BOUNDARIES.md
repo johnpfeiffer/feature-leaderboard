@@ -27,3 +27,21 @@ Validation:
 
 - Conflicts between researched or discovered items and RESOURCES are documented, and 
 
+
+## BOUNDARY-004: No Paid-Only MVP Dependency
+
+The MVP must not require a paid hosting, database, authentication, or storage service.
+
+Validation:
+
+- Derived architecture identifies all external services and their free-tier assumptions.
+
+
+## BOUNDARY-005: No Client-Only Authorization
+
+The system must not rely on client-side code as the sole enforcement for actions
+
+Validation:
+
+- Authorization rules are enforced by server-side code, database policies, or both.
+

@@ -42,3 +42,71 @@ Authority:
 - Informative only
 - Does not override kernel requirements, invariants, or acceptance criteria
 
+
+### RESOURCE-003: Supabase Platform
+
+Type: External reference
+
+URL: https://supabase.com/pricing
+
+Relevant ideas:
+
+- Free-tier hosted Postgres
+- Free-tier social OAuth
+- Free-tier constraints and inactivity behavior
+
+Authority:
+
+- Informative for free-tier feasibility
+- Does not override kernel requirements, invariants, or acceptance criteria
+
+### RESOURCE-004: Supabase Google Auth
+
+Type: External reference
+
+URL: https://supabase.com/docs/guides/auth/social-login/auth-google
+
+Relevant ideas:
+
+- Google OAuth setup
+- Required OAuth scopes
+- Local development callback configuration
+
+Authority:
+
+- Informative for authentication implementation
+- Does not override kernel requirements, invariants, or acceptance criteria
+
+### RESOURCE-005: Supabase API Security and RLS
+
+Type: External reference
+
+URL: https://supabase.com/docs/guides/api/securing-your-api
+
+Relevant ideas:
+
+- Grants
+- Row Level Security
+- Minimum database privileges
+
+Authority:
+
+- Informative for authorization implementation
+- Does not override kernel requirements, invariants, or acceptance criteria
+
+
+### RESOURCE-006: Google Oauth
+
+Type: External reference
+
+URL: https://blog.john-pfeiffer.com/react-with-material-ui-and-google-sso/
+
+Relevant ideas:
+
+- How to in a very MVP way setup Google SSO for a web application
+
+Authority:
+
+- Informative for authorization implementation
+- Does not override kernel requirements, invariants, or acceptance criteria
+
