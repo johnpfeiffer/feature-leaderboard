@@ -1,6 +1,7 @@
 
 # Dependency directories
 node_modules/
+**/node_modules/
 jspm_packages/
 /node_modules
 
@@ -39,6 +40,8 @@ typings/
 # production
 /build
 /dist
+**/build/
+**/dist/
 
 # misc
 .DS_Store
@@ -57,4 +60,3 @@ lerna-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-

@@ -1,4 +1,5 @@
 import type { User } from "@supabase/supabase-js";
+import { getAuthRedirectUrl } from "./authRedirect";
 import { supabase } from "./supabase";
 import type { FeatureRequest, FeatureRequestDraft, Profile } from "./types";
 import { normalizeFeatureRequestDraft } from "./validation";
@@ -16,7 +17,7 @@ export async function signInWithGoogle(): Promise<void> {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: window.location.origin,
+      redirectTo: getAuthRedirectUrl(window.location),
     },
   });
 

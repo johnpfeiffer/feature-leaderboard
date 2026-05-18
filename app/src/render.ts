@@ -247,7 +247,7 @@ function configurationWarning(): string {
 
   return `
     <div class="alert" role="alert">
-      Supabase is not configured. Copy .env.example to .env.local and set your project URL and anon key.
+      Supabase is not configured. Copy app/.env.example to app/.env.local and set your project URL and anon key.
     </div>
   `;
 }
