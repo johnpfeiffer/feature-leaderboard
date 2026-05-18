@@ -35,4 +35,7 @@ Users and Feature requests must be persisted across application restarts and dep
 
 The system must not depend on browser-local storage as the source of truth.
 
+## REQ-006: Sign Out
+
+A user must be able to sign out - removing their session and credentials
 

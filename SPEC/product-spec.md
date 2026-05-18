@@ -79,6 +79,7 @@ Derived validation:
 - Description is required.
 - Whitespace-only values are invalid.
 - Maximum lengths should be defined before implementation to protect UI and storage.
+- When validation fails, previously entered valid or invalid field values remain visible so the user can correct only the missing or invalid fields.
 
 On successful creation:
 

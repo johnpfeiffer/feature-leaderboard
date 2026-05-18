@@ -18,3 +18,7 @@ It is a multi-user app: in testing have at least 3 Users to prove the permutatio
 
 If the app is restarted state should correctly load from persistence.
 
+A signed out user cannot is now "unauthenticated"
+
+When a required field is missing the app should not lose previously entered info
+

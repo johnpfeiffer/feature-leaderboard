@@ -185,17 +185,37 @@ Proof type:
 Trace:
 
 - `REQ-003`
+- Kernel acceptance: "When a required field is missing the app should not lose previously entered info"
 
 Given an authenticated user,
 when they submit a feature request without a description,
-then no feature request is persisted.
+then no feature request is persisted,
+and any previously entered title remains visible in the form.
 
 Proof type:
 
 - Form validation test.
 - Data-layer validation test.
+- End-to-end browser test.
 
-## ACCEPT-012: Authorship Is Bound To Authenticated User
+## ACCEPT-012: Missing Title Is Rejected Without Losing Description
+
+Trace:
+
+- `REQ-003`
+- Kernel acceptance: "When a required field is missing the app should not lose previously entered info"
+
+Given an authenticated user,
+when they submit a feature request with a description but without a title,
+then no feature request is persisted,
+and the previously entered description remains visible in the form.
+
+Proof type:
+
+- Form validation test.
+- End-to-end browser test.
+
+## ACCEPT-013: Authorship Is Bound To Authenticated User
 
 Trace:
 
@@ -212,7 +232,7 @@ Proof type:
 - Integration test.
 - Database policy test.
 
-## ACCEPT-013: Authorship Cannot Be Spoofed
+## ACCEPT-014: Authorship Cannot Be Spoofed
 
 Trace:
 
@@ -229,7 +249,7 @@ Proof type:
 - Integration test.
 - Database policy test.
 
-## ACCEPT-014: Feature Requests Persist Across Restart Or Redeploy
+## ACCEPT-015: Feature Requests Persist Across Restart Or Redeploy
 
 Trace:
 
@@ -244,7 +264,7 @@ Proof type:
 - Integration test against durable data store.
 - Deployment smoke test.
 
-## ACCEPT-015: Browser Storage Is Not Source Of Truth
+## ACCEPT-016: Browser Storage Is Not Source Of Truth
 
 Trace:
 
@@ -259,7 +279,7 @@ Proof type:
 - End-to-end browser test.
 - Manual cross-browser smoke test.
 
-## ACCEPT-016: MVP Uses No Paid-Only Required Service
+## ACCEPT-017: MVP Uses No Paid-Only Required Service
 
 Trace:
 
@@ -274,7 +294,7 @@ Proof type:
 - Architecture review checklist.
 - Deployment documentation review.
 
-## ACCEPT-017: Validation Evidence Is Recorded
+## ACCEPT-018: Validation Evidence Is Recorded
 
 Trace:
 
@@ -290,7 +310,7 @@ Proof type:
 - Pull request checklist.
 - Task completion checklist.
 
-## ACCEPT-018: Kernel Remains Unmodified By Agents
+## ACCEPT-019: Kernel Remains Unmodified By Agents
 
 Trace:
 
