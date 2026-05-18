@@ -1,5 +1,10 @@
 import type { User } from "@supabase/supabase-js";
 import {
+  emptyFeatureRequestDraft,
+  featureRequestDraftFromFormData,
+  featureRequestFieldsHtml,
+} from "./featureRequestForm";
+import {
   createFeatureRequest,
   listFeatureRequests,
   signInWithGoogle,
@@ -7,7 +12,7 @@ import {
   syncProfile,
 } from "./api";
 import { isSupabaseConfigured, supabase } from "./supabase";
-import type { FeatureRequest, FormErrors } from "./types";
+import type { FeatureRequest, FeatureRequestDraft, FormErrors } from "./types";
 import { hasErrors, validateFeatureRequestDraft } from "./validation";
 
 type AppState = {
@@ -16,6 +21,7 @@ type AppState = {
   loading: boolean;
   saving: boolean;
   error: string | null;
+  formDraft: FeatureRequestDraft;
   formErrors: FormErrors;
 };
 
@@ -25,6 +31,7 @@ const state: AppState = {
   loading: true,
   saving: false,
   error: null,
+  formDraft: emptyFeatureRequestDraft(),
   formErrors: {},
 };
 
@@ -116,16 +123,7 @@ function authenticatedView(): string {
             <h2>New request</h2>
             <p class="muted">Submit one clear feature request at a time.</p>
           </div>
-          <label>
-            <span>Title</span>
-            <input name="title" maxlength="120" autocomplete="off" aria-invalid="${Boolean(state.formErrors.title)}" />
-            ${fieldError(state.formErrors.title)}
-          </label>
-          <label>
-            <span>Description</span>
-            <textarea name="description" maxlength="2000" rows="7" aria-invalid="${Boolean(state.formErrors.description)}"></textarea>
-            ${fieldError(state.formErrors.description)}
-          </label>
+          ${featureRequestFieldsHtml(state.formDraft, state.formErrors)}
           <button class="primary-action" type="submit" ${state.saving ? "disabled" : ""}>
             ${state.saving ? "Saving..." : "Submit request"}
           </button>
@@ -202,15 +200,24 @@ function bindEvents(root: HTMLElement): void {
     void load(root);
   });
 
+  root.querySelector("[name='title']")?.addEventListener("input", (event) => {
+    state.formDraft.title = (event.currentTarget as HTMLInputElement).value;
+  });
+
+  root
+    .querySelector("[name='description']")
+    ?.addEventListener("input", (event) => {
+      state.formDraft.description = (
+        event.currentTarget as HTMLTextAreaElement
+      ).value;
+    });
+
   root.querySelector("[data-feature-form]")?.addEventListener("submit", (event) => {
     event.preventDefault();
     const form = event.currentTarget as HTMLFormElement;
-    const formData = new FormData(form);
-    const draft = {
-      title: String(formData.get("title") ?? ""),
-      description: String(formData.get("description") ?? ""),
-    };
+    const draft = featureRequestDraftFromFormData(new FormData(form));
 
+    state.formDraft = draft;
     state.formErrors = validateFeatureRequestDraft(draft);
 
     if (hasErrors(state.formErrors) || !state.user) {
@@ -223,6 +230,7 @@ function bindEvents(root: HTMLElement): void {
 
     void createFeatureRequest(draft, state.user.id)
       .then(async () => {
+        state.formDraft = emptyFeatureRequestDraft();
         state.formErrors = {};
         await load(root);
       })
@@ -234,10 +242,6 @@ function bindEvents(root: HTMLElement): void {
         render(root);
       });
   });
-}
-
-function fieldError(message: string | undefined): string {
-  return message ? `<small class="field-error">${escapeHtml(message)}</small>` : "";
 }
 
 function configurationWarning(): string {
