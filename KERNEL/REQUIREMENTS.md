@@ -39,3 +39,7 @@ The system must not depend on browser-local storage as the source of truth.
 
 A user must be able to sign out - removing their session and credentials
 
+## REQ-007: Feature Status
+
+A feature can have a status of "Requested", "Pending", "Beta", "Done"
+
