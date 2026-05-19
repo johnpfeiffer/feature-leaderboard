@@ -89,7 +89,27 @@ Proof type:
 - Component test.
 - End-to-end browser test.
 
-## ACCEPT-006: Leaderboard Is Sorted By Creation Date Time
+## ACCEPT-006: Authenticated User Can Sign Out
+
+Trace:
+
+- `REQ-006`
+- `REQ-002`
+- `INV-004`
+- Kernel acceptance: "A signed out user cannot is now unauthenticated"
+
+Given an authenticated user,
+when they sign out,
+then their authenticated session is removed,
+and they are returned to the unauthenticated state,
+and they cannot see the feature list or submit a feature request without authenticating again.
+
+Proof type:
+
+- Auth module test with mocked Supabase auth.
+- End-to-end browser test with mocked authenticated session.
+
+## ACCEPT-007: Leaderboard Is Sorted By Creation Date Time
 
 Trace:
 
@@ -108,7 +128,7 @@ Proof type:
 - Unit test for sorting behavior.
 - Integration or end-to-end test with seeded feature requests.
 
-## ACCEPT-007: Authenticated Empty State
+## ACCEPT-008: Authenticated Empty State
 
 Trace:
 
@@ -124,7 +144,7 @@ Proof type:
 - Component test.
 - End-to-end browser test.
 
-## ACCEPT-008: Authenticated User Can Submit Valid Feature Request
+## ACCEPT-009: Authenticated User Can Submit Valid Feature Request
 
 Trace:
 
@@ -143,7 +163,7 @@ Proof type:
 - Integration test.
 - End-to-end browser test.
 
-## ACCEPT-009: Multi-User Leaderboard Shows Cross-User Data
+## ACCEPT-010: Multi-User Leaderboard Shows Cross-User Data
 
 Trace:
 
@@ -165,7 +185,7 @@ Proof type:
 - End-to-end browser test with mocked authenticated users.
 - Integration test with seeded users and feature requests.
 
-## ACCEPT-010: Missing Title Is Rejected
+## ACCEPT-011: Missing Title Is Rejected
 
 Trace:
 
@@ -180,7 +200,7 @@ Proof type:
 - Form validation test.
 - Data-layer validation test.
 
-## ACCEPT-011: Missing Description Is Rejected
+## ACCEPT-012: Missing Description Is Rejected
 
 Trace:
 
@@ -198,7 +218,7 @@ Proof type:
 - Data-layer validation test.
 - End-to-end browser test.
 
-## ACCEPT-012: Missing Title Is Rejected Without Losing Description
+## ACCEPT-013: Missing Title Is Rejected Without Losing Description
 
 Trace:
 
@@ -215,7 +235,7 @@ Proof type:
 - Form validation test.
 - End-to-end browser test.
 
-## ACCEPT-013: Authorship Is Bound To Authenticated User
+## ACCEPT-014: Authorship Is Bound To Authenticated User
 
 Trace:
 
@@ -232,7 +252,7 @@ Proof type:
 - Integration test.
 - Database policy test.
 
-## ACCEPT-014: Authorship Cannot Be Spoofed
+## ACCEPT-015: Authorship Cannot Be Spoofed
 
 Trace:
 
@@ -249,7 +269,7 @@ Proof type:
 - Integration test.
 - Database policy test.
 
-## ACCEPT-015: Feature Requests Persist Across Restart Or Redeploy
+## ACCEPT-016: Feature Requests Persist Across Restart Or Redeploy
 
 Trace:
 
@@ -264,7 +284,7 @@ Proof type:
 - Integration test against durable data store.
 - Deployment smoke test.
 
-## ACCEPT-016: Browser Storage Is Not Source Of Truth
+## ACCEPT-017: Browser Storage Is Not Source Of Truth
 
 Trace:
 
@@ -279,7 +299,7 @@ Proof type:
 - End-to-end browser test.
 - Manual cross-browser smoke test.
 
-## ACCEPT-017: MVP Uses No Paid-Only Required Service
+## ACCEPT-018: MVP Uses No Paid-Only Required Service
 
 Trace:
 
@@ -294,7 +314,7 @@ Proof type:
 - Architecture review checklist.
 - Deployment documentation review.
 
-## ACCEPT-018: Validation Evidence Is Recorded
+## ACCEPT-019: Validation Evidence Is Recorded
 
 Trace:
 
@@ -310,7 +330,7 @@ Proof type:
 - Pull request checklist.
 - Task completion checklist.
 
-## ACCEPT-019: Kernel Remains Unmodified By Agents
+## ACCEPT-020: Kernel Remains Unmodified By Agents
 
 Trace:
 

@@ -26,6 +26,7 @@ Required cases:
 - Whitespace-only description.
 - Missing description preserves previously entered title.
 - Missing title preserves previously entered description.
+- Signing out clears the authenticated state.
 - Creation-date-time sorting.
 - Deterministic tie-breaking for equal creation times.
 - Empty list state.
@@ -62,6 +63,7 @@ Required flows:
 - Authenticated user creates feature request.
 - Authenticated user submitting with a missing description sees validation error and keeps the entered title.
 - Authenticated user submitting with a missing title sees validation error and keeps the entered description.
+- Authenticated user signs out and sees only the unauthenticated login view.
 - Authenticated user sees created request after refresh.
 - Three authenticated users cover multi-user permutations, including one user with no submitted feature requests.
 - Authenticated user sees persisted request after clearing browser storage and signing in again.

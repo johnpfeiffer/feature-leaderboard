@@ -36,6 +36,7 @@ Expected behavior:
 - Can submit a feature request.
 - Can see feature request authorship.
 - Can return later and see persisted feature requests.
+- Can sign out.
 
 ## Feature Request Leaderboard
 
@@ -96,6 +97,8 @@ Derived behavior:
 - Unauthenticated users are routed to login.
 - Authenticated users can access the application.
 - Session state may be cached by the client, but authorization must be enforced outside client-only code.
+- Signing out removes the local authenticated session and returns the user to the unauthenticated state.
+- After sign-out, the user may only see the login page until authenticating again.
 
 ## Persistence
 

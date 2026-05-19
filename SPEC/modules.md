@@ -13,6 +13,7 @@ Responsibilities:
 Kernel trace:
 
 - `REQ-002`
+- `REQ-006`
 - `INV-004`
 - `BOUNDARY-005`
 
