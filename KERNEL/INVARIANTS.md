@@ -22,3 +22,7 @@ Every feature request must have exactly one authenticated author.
 
 Unauthenticated users may only see the login page
 
+## INV-005: Feature requests must exist in a Project
+
+## INV-006: A project must have a name and attribute of distinct state of maturity ranging from "idea", "vibes-only", "vibes-with-code", "vibes-with-tests", "spec-driven", "evals"
+
