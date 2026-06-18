@@ -83,6 +83,7 @@ Each listed feature request shows:
 - Description or summary
 - Author display identity
 - Creation time
+- Status
 
 Proof type:
 
@@ -156,7 +157,8 @@ Given an authenticated user,
 when they submit a feature request with a valid title and description,
 then the feature request is persisted,
 and it appears in the leaderboard,
-and it is attributed to that authenticated user.
+and it is attributed to that authenticated user,
+and it has a valid status.
 
 Proof type:
 
@@ -343,3 +345,34 @@ then no files under `/KERNEL/` are modified by the agent.
 Proof type:
 
 - Git diff check.
+
+## ACCEPT-021: Feature Request Status Is Constrained
+
+Trace:
+
+- `REQ-007`
+
+Given a feature request is persisted or displayed,
+then its status is one of `Requested`, `Pending`, `Beta`, or `Done`.
+
+Proof type:
+
+- Unit test for status validation.
+- Database constraint or server-side validation test.
+- Component or end-to-end test for displayed status.
+
+## ACCEPT-022: New Feature Requests Default To Requested Status
+
+Trace:
+
+- `REQ-003`
+- `REQ-007`
+
+Given an authenticated user,
+when they submit a new valid feature request without an explicit status transition workflow,
+then the persisted feature request has status `Requested`.
+
+Proof type:
+
+- Integration test.
+- End-to-end browser test.

@@ -59,6 +59,7 @@ Required enforcement:
 - Authenticated users can read feature requests.
 - Authenticated users can create feature requests attributed to themselves.
 - Authorship cannot be spoofed by client-provided values.
+- Feature request status values are constrained to `Requested`, `Pending`, `Beta`, or `Done`.
 
 ## Free-Tier Assumptions
 
@@ -80,4 +81,3 @@ Deployment documentation should include:
 - Supabase project setup.
 - Database migration instructions.
 - Validation commands.
-

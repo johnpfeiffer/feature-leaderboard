@@ -29,6 +29,9 @@ Required cases:
 - Signing out clears the authenticated state.
 - Creation-date-time sorting.
 - Deterministic tie-breaking for equal creation times.
+- Allowed feature status values.
+- Default feature status for new requests.
+- Invalid feature status rejection.
 - Empty list state.
 
 ### Integration Tests
@@ -44,11 +47,13 @@ Required cases:
 - Authenticated user creates feature request.
 - Created request persists in the data store.
 - Created request has authenticated author.
+- Created request has a valid persisted status.
 - Three seeded users can read the same persisted leaderboard.
 - A user with no submitted feature requests can still view other users' requests.
 - Anonymous read is rejected.
 - Anonymous create is rejected.
 - Spoofed `author_id` is rejected or ignored.
+- Invalid status value is rejected by the server-side data path or database constraint.
 
 ### End-To-End Tests
 
@@ -61,6 +66,7 @@ Required flows:
 - Anonymous visitor sees login only.
 - Authenticated user sees empty leaderboard.
 - Authenticated user creates feature request.
+- Authenticated user sees feature request status in the leaderboard.
 - Authenticated user submitting with a missing description sees validation error and keeps the entered title.
 - Authenticated user submitting with a missing title sees validation error and keeps the entered description.
 - Authenticated user signs out and sees only the unauthenticated login view.
@@ -83,6 +89,7 @@ Required checks:
 - Authenticated role can select feature requests.
 - Authenticated role can insert a feature request for itself.
 - Authenticated role cannot create a feature request attributed to another user.
+- Invalid feature status values cannot be persisted.
 
 ## Manual Review Checklists
 
@@ -100,6 +107,7 @@ Required checks:
 - Login page is the only anonymous view.
 - Authenticated feature list is readable.
 - Required fields are clear.
+- Feature status is visible for listed requests.
 - Validation errors are visible.
 - Empty state is visible.
 - Loading and error states are handled.

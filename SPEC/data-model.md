@@ -28,8 +28,16 @@ Fields:
 - `author_id` - authenticated user who created the request.
 - `title` - required request title.
 - `description` - required request description.
+- `status` - required feature status.
 - `created_at` - creation time.
 - `updated_at` - last update time.
+
+Allowed `status` values:
+
+- `Requested`
+- `Pending`
+- `Beta`
+- `Done`
 
 
 ## Relationships
@@ -57,12 +65,14 @@ Required constraints:
 - Feature request description is non-empty after trimming.
 - Feature request author is required.
 - Feature request author references a valid authenticated user profile.
+- Feature request status is required and must be one of the allowed values.
 - Creation time is recorded by the system.
 
 Recommended constraints:
 
 - Title maximum length.
 - Description maximum length.
+- Default new feature requests to `Requested`.
 - Stable ordering by `created_at` and `id`.
 
 ## Non-Goals
@@ -73,5 +83,5 @@ The current model intentionally excludes:
 - Comment records.
 - Public anonymous read access.
 - Admin roles.
+- Status transition workflow records.
 - Moderation audit logs.
-

@@ -10,6 +10,7 @@
 | `REQ-004` View Feature Requests | `SPEC/product-spec.md`, `SPEC/modules.md` | `ACCEPT-005`, `ACCEPT-008`, `ACCEPT-010` |
 | `REQ-005` Persistence | `SPEC/product-spec.md`, `SPEC/architecture.md`, `SPEC/data-model.md` | `ACCEPT-009`, `ACCEPT-016`, `ACCEPT-017` |
 | `REQ-006` Sign Out | `SPEC/product-spec.md`, `SPEC/modules.md` | `ACCEPT-006` |
+| `REQ-007` Feature Status | `SPEC/product-spec.md`, `SPEC/data-model.md`, `SPEC/modules.md`, `SPEC/architecture.md` | `ACCEPT-005`, `ACCEPT-009`, `ACCEPT-021`, `ACCEPT-022` |
 
 ## Boundaries
 
@@ -39,3 +40,4 @@
 | Feature deletion | Not required. | Exclude from MVP unless kernel adds it. |
 | Admin roles | Not required. | Exclude from MVP unless kernel adds it. |
 | Field limits | Not specified. | Define practical limits in implementation spec before coding. |
+| Status transitions | Kernel defines allowed status values but not who can change status or when. | Persist and display status; default new requests to `Requested`; exclude transition workflows until the kernel adds them. |

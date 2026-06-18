@@ -19,3 +19,5 @@ Kernel acceptance currently defines the ranking behavior:
 
 - Feature requests are sorted by creation date time.
 - Derived implementation should use deterministic tie-breaking when creation times match.
+
+Feature requests have a persisted status with one of the kernel-defined values: `Requested`, `Pending`, `Beta`, or `Done`. The kernel does not currently require a status transition workflow, so new requests should default to `Requested` unless a later kernel change specifies different behavior.

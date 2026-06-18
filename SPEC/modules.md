@@ -36,7 +36,7 @@ Kernel trace:
 Responsibilities:
 
 - Load persisted feature requests for authenticated users.
-- Display title, description or summary, author identity, and creation time.
+- Display title, description or summary, author identity, creation time, and status.
 - Show empty, loading, and error states.
 - Sort by creation date time.
 - Apply deterministic tie-breaking when creation times match.
@@ -46,6 +46,7 @@ Kernel trace:
 - `REQ-001`
 - `REQ-004`
 - `REQ-005`
+- `REQ-007`
 
 ## Module: Feature Request Creation
 
@@ -55,12 +56,14 @@ Responsibilities:
 - Validate required fields.
 - Persist valid feature requests.
 - Associate new requests with authenticated author.
+- Assign a valid initial status.
 - Refresh or update the list after creation.
 
 Kernel trace:
 
 - `REQ-003`
 - `REQ-005`
+- `REQ-007`
 - `INV-003`
 
 ## Module: Persistence And Authorization
@@ -70,11 +73,13 @@ Responsibilities:
 - Store users and feature requests in the durable system of record.
 - Enforce authenticated read/write access.
 - Enforce authorship integrity.
+- Enforce allowed feature status values.
 - Avoid browser-local storage as the source of truth.
 
 Kernel trace:
 
 - `REQ-005`
+- `REQ-007`
 - `BOUNDARY-004`
 - `BOUNDARY-005`
 - `INV-003`

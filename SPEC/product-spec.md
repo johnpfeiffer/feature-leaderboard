@@ -11,7 +11,7 @@ Derived from:
 
 The system is a web application where Google-authenticated users can submit and view feature requests.
 
-The MVP does not include voting, comments, public anonymous browsing, moderation workflows, notifications, or administrative status management unless the kernel later adds those requirements.
+The MVP does not include voting, comments, public anonymous browsing, moderation workflows, notifications, or status transition workflows unless the kernel later adds those requirements.
 
 ## Users
 
@@ -49,11 +49,21 @@ Each feature request must include:
 - Author display identity
 - Creation time
 
+Each feature request also has a status.
+
+Allowed status values:
+
+- Requested
+- Pending
+- Beta
+- Done
+
 Display behavior:
 
 - Sort by creation date time.
 - Use a deterministic secondary sort such as unique identifier when creation times match.
 - Empty state should be visible to authenticated users when no feature requests exist.
+- Show the current status for each feature request.
 
 ## Multi-User Behavior
 
@@ -86,6 +96,7 @@ On successful creation:
 
 - The request is persisted.
 - The request is associated with the authenticated user.
+- The request is created with status `Requested`.
 - The request appears in the leaderboard.
 
 ## Authentication
@@ -119,7 +130,7 @@ These features are not currently required:
 - Downvotes
 - Comments
 - Public anonymous feature browsing
-- Admin status changes
+- Status transition workflows
 - Request deletion
 - Request editing
 - Duplicate detection
